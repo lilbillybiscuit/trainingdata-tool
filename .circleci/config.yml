@@ -30,7 +30,7 @@ jobs:
           name: Artifact Binary Files
           command: |
             mkdir -p /tmp/artifacts;
-            cp /tmp/trainingdata-tool/trainingdata-tool* /tmp/artifacts/;
+            cp trainingdata-tool* /tmp/artifacts/;
 
       - store_artifacts:
           path: /tmp/artifact-1
