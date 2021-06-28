@@ -16,6 +16,9 @@ jobs:
           name: Install Boost
           command: 'sudo apt-get update && sudo apt-get install -y libboost-all-dev'
       - run:
+          name: Install Tree
+          command: 'sudo apt-get update && sudo apt-get install tree'
+      - run:
           name: "Pull Submodules"
           command: |
             git submodule sync --recursive
@@ -29,6 +32,7 @@ jobs:
       - run:
           name: Artifact Binary Files
           command: |
+            tree
             mkdir -p /tmp/artifacts;
             cp trainingdata-tool* /tmp/artifacts/;
 
