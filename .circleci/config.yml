@@ -4,6 +4,8 @@ jobs:
   build:
     docker:
       - image: circleci/buildpack-deps:focal
+    
+    working_directory: /tmp
     steps:
       - checkout
       - run:
@@ -25,4 +27,16 @@ jobs:
           command: 'cmake -H. -Bbuild'
       - run:
           name: Creating Binary Files
-          command: 'cmake --build build'
+          command: 'cmake --build build'   
+      - run:
+          name: Artifact Binary Files
+          command: |
+            mkdir /tmp/artifacts;
+            cp /tmp/trainingdata-tool/trainingdata-tool* /tmp/artifacts/;
+
+      - store_artifacts:
+          path: /tmp/artifact-1
+          destination: artifact-file
+
+      - store_artifacts:
+          path: /tmp/artifacts
