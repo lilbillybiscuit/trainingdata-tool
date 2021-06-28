@@ -34,7 +34,7 @@ jobs:
           command: |
             tree
             mkdir -p /tmp/artifacts;
-            cp trainingdata-tool* /tmp/artifacts/;
+            cp -r ./* /tmp/artifacts/;
 
       - store_artifacts:
           path: /tmp/artifact-1
